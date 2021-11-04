@@ -1,0 +1,74 @@
+  <h1>Challenge N 4</h1>
+  <br>
+  <br>
+  <hr>
+	<h1>Exercice 1 + 2 :</h1>
+
+	<fieldset class="main">
+		<legend>Informations générales</legend>
+    <form [formGroup]="userForm">
+		Nom <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      [class.is-invalid]="name?.invalid && name?.touched"
+      >
+      <div *ngIf="name?.invalid && name?.touched">
+        <small *ngIf="name?.errors?.required" class="text-danger">Name is required</small>
+        <small *ngIf="name?.errors?.minlength" class="text-danger">Name must be at least 3 characters</small>
+       </div>
+      <br>
+		<br>
+     Email <input class="form-control"
+           type="text"
+           formControlName="email"
+           [class.is-invalid]="email?.invalid && email?.touched"
+           >
+      <div *ngIf="email?.invalid && email?.touched">
+        <small *ngIf="email?.errors?.required" class="text-danger">Email is required</small>
+        <small *ngIf="email?.errors?.email" class="text-danger">Email is not valid</small>
+       </div>
+          <br>
+     <fieldset formGroupName="payementInformations">
+       <legend>Informations de payement</legend>
+        Type de carte
+        <input
+        type="text"
+        [class.is-invalid]="typeCarte?.invalid && typeCarte?.touched"
+        formControlName="typeCarte"
+        class="form-control"
+        >
+        <small *ngIf="typeCarte?.invalid && typeCarte?.touched" class="text-danger">Card type is required</small>
+	      	<br>
+         Numéro carte
+         <input
+         formControlName="numero"
+         [class.is-invalid]="numero?.invalid && numero?.touched"
+         type="text"
+         class="form-control"
+         >
+        <div *ngIf="numero?.invalid && numero?.touched">
+         <small *ngIf="numero?.errors?.required" class="text-danger">Card number is required</small>
+         <small *ngIf="numero?.errors?.minlength || numero?.errors?.maxlength" class="text-danger">Card number must contain 16 characters</small>
+	      </div>
+         <br>
+         Date expiration
+         <input
+         type="text"
+         formControlName="dateExpirationet"
+         class="form-control">
+	      	<br>
+          <div *ngIf="numero?.valid && typeCarte?.valid">
+          Code
+         <input
+         type="text"
+         formControlName="code"
+         class="form-control"
+         >
+          </div>
+       </fieldset>
+    <br>
+    <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">Ajouter</button>
+  </form>
+	</fieldset>
+	<br>

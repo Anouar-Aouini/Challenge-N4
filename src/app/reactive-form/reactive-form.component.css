@@ -1,0 +1,16 @@
+
+		h1,
+		h2,
+		.titl {
+			text-align: center;
+		}
+     .main{
+       margin-left: 22%;
+     }
+		fieldset {
+			width: 50%;
+		}
+
+		h1 {
+			color: green;
+		}
