@@ -48,6 +48,24 @@ export class ReactiveFormComponent implements OnInit {
 
    get numero() {
     return this.userForm.get('payementInformations')?.get("numero");
+   }
+  /*
+  *** Defining the object as follows :
+  userForm = new FormGroup({
+    name: new FormControl("name",[Validators.required,Validators.minLength(3)]),
+    email: new FormControl("email@gmail.com",[Validators.email,Validators.required]),
+    payementInformations: new FormGroup({
+      typeCarte:new FormControl("type",[Validators.required]),
+      numero:new FormControl("529819",[Validators.minLength(16),Validators.maxLength(16),Validators.required]),
+      dateExpirationet:new FormControl("02/02/2020"),
+      code:new FormControl("1979791719797")
+    })
+  })
+  **** Defining getters as follows :
+    get name() {
+    return this.userForm.get("name");
     }
+
+  */
 
 }
